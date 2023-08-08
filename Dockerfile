@@ -53,7 +53,7 @@ RUN cd /tmp/ \
 	&& rm -r /tmp/swag-${SWAG_VERSION}
 
 RUN cd /tmp/ \
-	&& wget -nv https://github.com/comm100developer/signal-cli/releases/archive/refs/tags/v${SIGNAL_CLI_VERSION}.tar.gz -O /tmp/signal-cli.tar.gz \
+	&& wget -nv https://github.com/comm100developer/signal-cli/archive/refs/tags/v${SIGNAL_CLI_VERSION}.tar.gz -O /tmp/signal-cli.tar.gz \
 	&& tar xf signal-cli.tar.gz
 
 # build native image with graalvm
