@@ -75,7 +75,7 @@ RUN if [ "$(uname -m)" = "x86_64" ]; then \
 		&& export GRAALVM_HOME=/tmp/graalvm-ce-java${GRAALVM_JAVA_VERSION}-${GRAALVM_VERSION} \
 		&& export PATH=/tmp/graalvm-ce-java${GRAALVM_JAVA_VERSION}-${GRAALVM_VERSION}/bin:$PATH \
 		&& cd /tmp/signal-cli-${SIGNAL_CLI_VERSION}-source \
-		&& sed -i 's/Signal-Android\/5.22.3/Signal-Android\/5.51.7/g' src/main/java/org/comm100developer/signal/BaseConfig.java \
+		&& sed -i 's/Signal-Android\/5.22.3/Signal-Android\/5.51.7/g' src/main/java/org/asamk/signal/BaseConfig.java \
 		&& chmod +x /tmp/graalvm-ce-java${GRAALVM_JAVA_VERSION}-${GRAALVM_VERSION}/bin/gu \ 
 		&& /tmp/graalvm-ce-java${GRAALVM_JAVA_VERSION}-${GRAALVM_VERSION}/bin/gu install native-image \
 		&& ./gradlew -q nativeCompile; \
@@ -110,7 +110,7 @@ RUN ls /tmp/signal-cli-${SIGNAL_CLI_VERSION}/lib/libsignal-client-${LIBSIGNAL_CL
 # workaround until upstream is fixed
 RUN cd /tmp/signal-cli-${SIGNAL_CLI_VERSION}/lib \
 	&& unzip signal-cli-${SIGNAL_CLI_VERSION}.jar \
-	&& sed -i 's/Signal-Android\/5.22.3/Signal-Android\/5.51.7/g' org/comm100developer/signal/BaseConfig.class \
+	&& sed -i 's/Signal-Android\/5.22.3/Signal-Android\/5.51.7/g' org/asamk/signal/BaseConfig.class \
 	&& zip -r signal-cli-${SIGNAL_CLI_VERSION}.jar org/ META-INF/ \
 	&& rm -rf META-INF \
 	&& rm -rf org
