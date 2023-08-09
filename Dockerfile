@@ -18,7 +18,7 @@ ARG GRAALVM_VERSION
 ARG BUILD_VERSION_ARG
 ARG SIGNAL_CLI_NATIVE_PACKAGE_VERSION
 
-COPY ext/signal-cli-${SIGNAL_CLI_VERSION}/lib/libsignal-client-${SIGNAL_CLIENT_VER} /tmp/libsignal-client-libraries
+COPY ext/libraries/libsignal-client/${LIBSIGNAL_CLIENT_VERSION} /tmp/libsignal-client-libraries
 
 # use architecture specific libsignal_jni.so
 RUN arch="$(uname -m)"; \
